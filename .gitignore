@@ -6,7 +6,7 @@ __pycache__/
 *.nbconvert.ipynb
 *~
 
-.hw_api_key
+src/.hw_api_key
 
 # C extensions
 *.so
