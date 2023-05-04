@@ -1,0 +1,69 @@
+name: bank-note-auth-feature-and-predicition-pipelines
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 10 * * *'
+  
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test_schedule:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: checkout repo content
+      - uses: actions/checkout@v3
+
+      - name: setup python
+        uses: actions/checkout@v3
+        with: 
+          python-version: '3.9.0'
+
+      # Runs a set of commands using the runners shell
+      - name: install python packages
+        run: |
+          pip -m pip install --upgrade pip 
+          pip install -r requirements.txt
+          
+      - name: execute python workflows from bash script
+        env:
+          HOPSWORKS_API_KEY: ${{secrets.HOPSWORKS_API_KEY}}
+        run: ./src/scripts/run-feature-and-prediction-pipelines.sh
+        
+      - name: publish github pages
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Automated pngs published"
+          
+          branch: main
+          
+          commit_options: '--no-verify --signoff'
+          
+          file_pattern:  assets/confusion_matrix.png assets/df_recent.png
+          
+          repository: .
+          
+          commit_user_name: My GitHub Actions Bot # defaults to "github-actions[bot]"
+          commit_user_email: my-github-actions-bot@example.org # defaults to "github-actions[bot]@users.noreply.github.com"
+          commit_author: Author <actions@github.com>
+          
+          skip_dirty_check: true 
+          
+          # Optional. Skip internal call to `git fetch`
+          skip_fetch: false
+          
+          # Optional. Skip internal call to `git checkout`
+          skip_checkout: false
+      
+          # Optional. Prevents the shell from expanding filenames. 
+          # Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
+          disable_globbing: true
+      
+          # Optional. Create given branch name in local and remote repository.
+          create_branch: false
+        
