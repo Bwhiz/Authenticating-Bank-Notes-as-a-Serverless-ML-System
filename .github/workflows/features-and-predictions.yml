@@ -20,7 +20,7 @@ jobs:
       - name: Install Python packages
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt
+          FOR /F %k in (requirements.txt) DO pip install %k
 
       - name: Execute Python workflows from bash script
         env:
