@@ -37,7 +37,7 @@ jobs:
           
           commit_options: '--no-verify --signoff'
           
-          file_pattern:  assets/confusion_matrix.png assets/df_recent.png
+          file_pattern:  assets/confusion_matrix.png
           
           repository: .
           
