@@ -31,35 +31,35 @@ jobs:
         run: ./src/scripts/run-feature-and-prediction-pipelines.sh
 
         
-      - name: publish github pages
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Automated pngs published"
+#       - name: publish github pages
+#         uses: stefanzweifel/git-auto-commit-action@v4
+#         with:
+#           commit_message: "Automated pngs published"
           
-          branch: main
+#           branch: main
           
-          commit_options: '--no-verify --signoff'
+#           commit_options: '--no-verify --signoff'
           
-          file_pattern:  assets/confusion_matrix.png
+#           file_pattern:  assets/confusion_matrix.png
           
-          repository: .
+#           repository: .
           
-          commit_user_name: My GitHub Actions Bot # defaults to "github-actions[bot]"
-          commit_user_email: my-github-actions-bot@example.org # defaults to "github-actions[bot]@users.noreply.github.com"
-          commit_author: Author <actions@github.com>
+#           commit_user_name: My GitHub Actions Bot # defaults to "github-actions[bot]"
+#           commit_user_email: my-github-actions-bot@example.org # defaults to "github-actions[bot]@users.noreply.github.com"
+#           commit_author: Author <actions@github.com>
           
-          skip_dirty_check: true 
+#           skip_dirty_check: true 
           
-          # Optional. Skip internal call to `git fetch`
-          skip_fetch: false
+#           # Optional. Skip internal call to `git fetch`
+#           skip_fetch: false
           
-          # Optional. Skip internal call to `git checkout`
-          skip_checkout: false
+#           # Optional. Skip internal call to `git checkout`
+#           skip_checkout: false
       
-          # Optional. Prevents the shell from expanding filenames. 
-          # Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
-          disable_globbing: true
+#           # Optional. Prevents the shell from expanding filenames. 
+#           # Details: https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
+#           disable_globbing: true
       
-          # Optional. Create given branch name in local and remote repository.
-          create_branch: false
+#           # Optional. Create given branch name in local and remote repository.
+#           create_branch: false
         
