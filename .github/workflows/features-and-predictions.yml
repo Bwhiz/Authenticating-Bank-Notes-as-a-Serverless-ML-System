@@ -24,6 +24,9 @@ jobs:
        
       - name: Add execute permission to script
         run: chmod +x ./src/scripts/run-feature-and-prediction-pipelines.sh 
+        
+      - name: Add changes to git staging area
+        run: git add .
 
       - name: publish github pages
         uses: stefanzweifel/git-auto-commit-action@v4
