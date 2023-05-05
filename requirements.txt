@@ -4,6 +4,6 @@ seaborn
 matplotlib
 hopsworks
 hsml
-sklearn
+scikit-learn
 xgboost
 nbconvert
