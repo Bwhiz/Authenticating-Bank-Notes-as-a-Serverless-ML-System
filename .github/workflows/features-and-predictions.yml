@@ -40,7 +40,7 @@ jobs:
           
           commit_options: '--no-verify --signoff'
           
-          file_pattern:  assets/confusion_matrix.png
+          file_pattern:  ../assets/confusion_matrix.png
           
           repository: .
           
