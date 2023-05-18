@@ -2,8 +2,8 @@ name: bank-note-auth-feature-and-prediction-pipelines
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 10 * * *'
+#  schedule:
+#    - cron: '0 10 * * *'
 
 jobs:
   test_schedule:
